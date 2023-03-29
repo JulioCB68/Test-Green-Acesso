@@ -5,9 +5,13 @@ export const Container = styled.div`
 
 	display: grid;
 
-	grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+	grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
 	grid-auto-rows: 1fr;
 
-	padding: 2rem 0;
+	padding: 2rem 7rem;
 	gap: 1rem;
+
+	@media (max-width: 768px) {
+		padding: 2rem 5rem;
+	}
 `;
