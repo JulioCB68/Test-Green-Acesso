@@ -4,6 +4,7 @@ export const Container = styled.div`
 	width: 100%;
 	display: grid;
 	grid-template-columns: 7rem 1fr;
+	background: #f6f5f3;
 
 	@media (max-width: 768px) {
 		display: flex;
@@ -13,7 +14,7 @@ export const Container = styled.div`
 
 export const Aside = styled.div`
 	width: 100%;
-	background: #181f39;
+	background: linear-gradient(180deg, #374151 100%, #111827 0%);
 
 	display: flex;
 	align-items: center;
@@ -61,6 +62,7 @@ export const Aside = styled.div`
 `;
 
 export const Content = styled.div`
+	padding: 0 2rem;
 	width: 100%;
-	background: #f6f5f3;
+	background: linear-gradient(180deg, #374151 0%, #111827 100%);
 `;
