@@ -1,9 +1,11 @@
 import React from "react";
 
-import { Container } from "./styles";
-import { getAllCharacters } from "api/characters";
 import { useQuery } from "react-query";
+import { getAllCharacters } from "api/characters";
+
 import Character from "components/Character";
+
+import { Container } from "./styles";
 
 export const Home = () => {
 	const { data, isLoading } = useQuery("characters", getAllCharacters);

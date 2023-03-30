@@ -73,6 +73,10 @@ export const Aside = styled.div`
 
 export const Content = styled.div`
 	width: 100%;
-	padding: 0 2rem;
+	padding: 2rem 7rem;
 	background: linear-gradient(180deg, #374151 0%, #111827 100%);
+
+	@media (max-width: 768px) {
+		padding: 2rem 5rem;
+	}
 `;

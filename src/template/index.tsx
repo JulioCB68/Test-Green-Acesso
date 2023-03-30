@@ -1,11 +1,11 @@
 import React from "react";
 
-import { Container, Aside, Content } from "./styles";
-
-import { BiUser, BiMoviePlay, BiWorld } from "react-icons/bi";
 import Link from "next/link";
 import routes from "../config/routes";
 
+import { BiUser, BiMoviePlay, BiWorld } from "react-icons/bi";
+
+import { Container, Aside, Content } from "./styles";
 interface ITemplateProps {
 	children: React.ReactNode;
 }

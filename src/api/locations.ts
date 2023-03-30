@@ -1,12 +1,12 @@
-import { LocationI } from "./@types/location";
 import { api } from "./api";
+import { LocationI } from "./@types/location";
 
-export const getAllCharacters = async (): Promise<LocationI[]> => {
+export const getAllLocations = async (): Promise<LocationI[]> => {
 	const response = await api.get(`location`);
-	return response.data;
+	return response.data.results;
 };
 
-export const getSingleCharacter = async (id: number): Promise<LocationI[]> => {
+export const getSingleLocations = async (id: number): Promise<LocationI> => {
 	const response = await api.get(`location/${id}`);
 	return response.data;
 };

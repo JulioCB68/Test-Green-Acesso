@@ -3,7 +3,6 @@ import { api } from "./api";
 
 export const getAllCharacters = async (): Promise<CharacterI[]> => {
 	const response = await api.get(`character`);
-	console.log(response.data);
 	return response.data.results;
 };
 
