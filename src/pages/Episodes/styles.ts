@@ -3,30 +3,41 @@ import styled from "styled-components";
 export const Container = styled.div`
 	width: 100%;
 
-	.last {
-		width: 50%;
-		display: grid;
-
-		grid-template-columns: 1fr 1fr;
-		gap: 2rem;
-		padding: 2rem 0 4rem;
+	.banner {
+		width: 100%;
+		height: 20rem;
+		object-fit: cover;
+		background-position: center;
+		opacity: 0.4;
+		margin: 0 0 3rem;
 
 		@media (max-width: 768px) {
-			width: 100%;
-			grid-template-columns: 1fr;
+			height: 10rem;
 		}
+	}
+`;
+
+export const Wrapper = styled.div`
+	width: 100%;
+	padding: 0 7rem;
+
+	@media (max-width: 768px) {
+		padding: 0 2rem;
+	}
+	.banner {
+		width: 100%;
+		height: 20rem;
+		object-fit: cover;
+		background-position: center;
+		opacity: 0.4;
+		margin: 0 0 3rem;
+		border-radius: 0.75rem;
 	}
 
 	.see-all {
 		display: flex;
 		align-items: center;
 		justify-content: space-between;
-
-		.link {
-			:hover {
-				opacity: 0.6;
-			}
-		}
 	}
 
 	.all {
@@ -40,4 +51,9 @@ export const Container = styled.div`
 		padding: 2rem 0rem 5rem;
 		gap: 1rem;
 	}
+`;
+
+export const Title = styled.h1`
+	text-align: center;
+	padding: 0 0 5rem;
 `;

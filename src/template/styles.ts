@@ -16,6 +16,7 @@ export const Aside = styled.div`
 	width: 5rem;
 	height: 100vh;
 	background: linear-gradient(180deg, #374151 100%, #111827 0%);
+	z-index: 999;
 
 	display: flex;
 	align-items: center;
@@ -28,7 +29,6 @@ export const Aside = styled.div`
 		width: 100%;
 		height: initial;
 		bottom: 0;
-		z-index: 999;
 	}
 
 	.side-icons {
@@ -73,10 +73,5 @@ export const Aside = styled.div`
 
 export const Content = styled.div`
 	width: 100%;
-	padding: 2rem 7rem;
 	background: linear-gradient(180deg, #374151 0%, #111827 100%);
-
-	@media (max-width: 768px) {
-		padding: 2rem 5rem;
-	}
 `;

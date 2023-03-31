@@ -2,11 +2,20 @@ import styled from "styled-components";
 
 export const Container = styled.div`
 	width: 100%;
+	cursor: pointer;
+	margin: 1rem 0;
+
+	:hover {
+		transform: scale(0.95);
+	}
 
 	.background-EP {
 		/* background: linear-gradient(150deg, #516395 0%, #614385 100%); */
-		background: linear-gradient(150deg, #614385 0%, #516395 100%);
+		/* background: linear-gradient(150deg, #614385 0%, #516395 100%); */
+		width: 100%;
 		height: 10rem;
+		object-fit: cover;
+		opacity: 0.7;
 		border-radius: 0.75rem 0.75rem 0 0;
 	}
 
