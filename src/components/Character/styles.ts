@@ -23,6 +23,7 @@ export const Container = styled.div`
 		color: #e5e5e5;
 		opacity: 0.7;
 		padding: 0.5rem 1rem;
+		text-transform: capitalize;
 	}
 
 	> div {

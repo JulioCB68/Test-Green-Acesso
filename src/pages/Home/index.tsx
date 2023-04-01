@@ -12,6 +12,9 @@ import { BsArrowLeft, BsArrowRight } from "react-icons/bs";
 
 import { Container, Wrapper } from "./styles";
 import useDebounce from "hooks/useDebounce";
+import useSortableData from "hooks/useSortableData";
+
+import { CharacterI } from "api/@types/character";
 
 export const Home = () => {
 	const [name, setName] = useState("");
@@ -24,11 +27,7 @@ export const Home = () => {
 
 	const debounceChange = useDebounce(setName, 1000);
 
-	const handleOrder =
-		data &&
-		sortData(data, ordenation).map(({ ...item }) => (
-			<Character key={item.id} data={item} />
-		));
+	const sortedData = useSortableData(data, ordenation, Character);
 
 	return (
 		<Container>
@@ -61,7 +60,7 @@ export const Home = () => {
 			) : (
 				data && (
 					<>
-						<Wrapper>{data && handleOrder}</Wrapper>
+						<Wrapper>{data && sortedData}</Wrapper>
 					</>
 				)
 			)}

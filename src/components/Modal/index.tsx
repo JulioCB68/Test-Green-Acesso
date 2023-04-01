@@ -52,11 +52,11 @@ const Modal: React.FC<IModalProps> = ({ data, handleModal }) => {
 								<p> {data?.location.name} </p>
 							</div>
 							<div>
-								<p>
-									<strong>{data?.status}</strong> at the moment
-								</p>
+								<h4> Status: </h4>
+								<h3 className={data?.status}>
+									{data?.status === "unknown" ? "(?)" : data?.status}
+								</h3>
 							</div>
-							<h3 className={data?.status}>{data?.status}</h3>
 						</Info>
 					</SubContainer>
 				</Content>

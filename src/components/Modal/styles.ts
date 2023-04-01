@@ -11,7 +11,6 @@ export const Container = styled.div`
 	display: flex;
 	align-items: center;
 	justify-content: center;
-	flex-direction: column;
 
 	p,
 	h4,
@@ -21,24 +20,22 @@ export const Container = styled.div`
 `;
 
 export const Content = styled.div`
-	background: #ffffff;
+	background-color: #ffffff;
 	padding: 2rem;
 	border-radius: 0.5rem;
-	box-shadow: 0px 97px 39px rgba(0, 0, 0, 0.01),
-		0px 54px 33px rgba(0, 0, 0, 0.03), 0px 24px 24px rgba(0, 0, 0, 0.04),
-		0px 6px 13px rgba(0, 0, 0, 0.05), 0px 0px 0px rgba(0, 0, 0, 0.05);
+	box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.1);
 `;
 
 export const Header = styled.div`
 	display: flex;
 	align-items: center;
 	justify-content: space-between;
-	padding: 0 0 1rem;
+	margin-bottom: 1rem;
 
 	button {
 		outline: none;
 		border: none;
-		background: transparent;
+		background-color: transparent;
 		cursor: pointer;
 
 		.icon {
@@ -53,7 +50,6 @@ export const SubContainer = styled.div``;
 export const Info = styled.div`
 	display: flex;
 	flex-direction: column;
-	padding-right: 1rem;
 
 	> div {
 		display: flex;
@@ -68,27 +64,27 @@ export const Info = styled.div`
 	}
 
 	h3 {
-		color: #ffffff;
-		text-align: center;
-		padding: 0.5rem 0;
-		margin: 2rem 0 0;
-		font-weight: 400;
 		font-size: 1rem;
+		/* font-weight: 400; */
+		letter-spacing: 0.2rem;
+		/* text-align: center; */
 		text-transform: uppercase;
+		color: #ffffff;
+		/* margin: 1rem 0; */
 	}
 
 	.unknown {
-		background: #9e9e9e;
+		color: #9e9e9e;
 		border-radius: 0.25rem;
 	}
 
 	.Dead {
-		background: #d63d2e;
+		color: #d63d2e;
 		border-radius: 0.25rem;
 	}
 
 	.Alive {
-		background: #55cc44;
+		color: #55cc44;
 		border-radius: 0.25rem;
 	}
 `;

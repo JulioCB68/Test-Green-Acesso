@@ -1,11 +1,6 @@
-import { CharacterI } from "../api/@types/character";
+export type OrdenationType = "ASC" | "DESC" | undefined;
 
-export type OrdenationType = "ASC" | "DESC";
-
-export const sortData = (
-	data: Array<CharacterI>,
-	ordenation?: OrdenationType
-) => {
+export const sortData = (data: Array<any>, ordenation?: OrdenationType) => {
 	if (!ordenation) {
 		return data; // Retorna o array original sem ordenação
 	}
