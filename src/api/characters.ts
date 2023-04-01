@@ -1,8 +1,11 @@
 import { CharacterI } from "./@types/character";
 import { api } from "./api";
 
-export const getAllCharacters = async (): Promise<CharacterI[]> => {
-	const response = await api.get(`character`);
+export const getAllCharacters = async (
+	name: string,
+	page: number
+): Promise<CharacterI[]> => {
+	const response = await api.get(`character/?name=${name}&page=${page}`);
 	return response.data.results;
 };
 

@@ -21,16 +21,16 @@ interface IModalProps {
 const Modal: React.FC<IModalProps> = ({ data, handleModal }) => {
 	return (
 		<>
-			<Container key={data?.id}>
+			<Container key={data?.id} onClick={() => handleModal(false)}>
 				<Content>
 					<Header>
 						<button onClick={() => handleModal(false)}>
 							<FiArrowLeft size={24} />
 						</button>
-						<button onClick={() => handleModal(false)}>
-							<img src={data?.image} alt="Rick Icon" className="icon" />
-						</button>
 					</Header>
+					<ImageContainer>
+						<img src={data?.image} alt="Dog Image" />
+					</ImageContainer>
 					<SubContainer>
 						<Info>
 							<div>
@@ -56,10 +56,8 @@ const Modal: React.FC<IModalProps> = ({ data, handleModal }) => {
 									<strong>{data?.status}</strong> at the moment
 								</p>
 							</div>
+							<h3 className={data?.status}>{data?.status}</h3>
 						</Info>
-						<ImageContainer>
-							<img src={data?.image} alt="Dog Image" />
-						</ImageContainer>
 					</SubContainer>
 				</Content>
 			</Container>

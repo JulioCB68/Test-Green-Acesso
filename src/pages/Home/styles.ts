@@ -1,6 +1,35 @@
 import styled from "styled-components";
 
 export const Container = styled.div`
+	.actions {
+		width: 100%;
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		padding: 3rem 14rem;
+
+		input {
+			width: 75%;
+			padding: 1rem;
+			outline: 0;
+			border: 0;
+			border-radius: 0.5rem;
+		}
+
+		button {
+			cursor: pointer;
+			padding: 1rem 2rem;
+			border-radius: 0.5rem;
+			border: 0;
+
+			:first-of-type {
+				margin: 0 1rem 0 0;
+			}
+		}
+	}
+`;
+
+export const Wrapper = styled.div`
 	width: 100%;
 
 	display: grid;
