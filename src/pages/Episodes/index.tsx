@@ -3,14 +3,17 @@ import React, { useState } from "react";
 import { useQuery } from "react-query";
 import { getAllEpisodes } from "api/episodes";
 
-import { EpisodeI } from "api/@types/episode";
+import { OrdenationType } from "utils/ordenation";
 
+import Header from "components/Header";
 import EpCard from "../../components/EpCard";
 
 import { Container, Wrapper, Title } from "./styles";
 
 const Episodes: React.FC = () => {
-	const [page, setPage] = useState<number>(1);
+	const [name, setName] = useState("");
+	const [page, setPage] = useState(1);
+	const [ordenation, setOrdenation] = useState<OrdenationType>();
 
 	const { data, isLoading } = useQuery(["episodes", page], () =>
 		getAllEpisodes(page)
@@ -25,7 +28,7 @@ const Episodes: React.FC = () => {
 			/>
 			<Wrapper>
 				<Title>List of episodes</Title>
-
+				<Header name={setName} page={setPage} ordenation={setOrdenation} />
 				<div className="see-all">
 					<h1>All episodes</h1>
 				</div>
