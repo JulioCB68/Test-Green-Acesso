@@ -1,10 +1,10 @@
 import { Template } from "template";
-import Locations from "pages/Locations";
+import Location from "pages/Locations/Location";
 
 const PageLocation: React.FC = () => (
 	<>
 		<Template>
-			<Locations />
+			<Location />
 		</Template>
 	</>
 );

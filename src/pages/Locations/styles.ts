@@ -4,21 +4,24 @@ export const Container = styled.div`
 	width: 100%;
 	height: 100vh;
 
-	display: grid;
+	padding: 2rem 7rem;
 
-	grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-	grid-auto-rows: 100px;
-
-	gap: 1rem;
+	@media (max-width: 768px) {
+		padding: 2rem 3rem 7rem;
+	}
 `;
 
-export const Content = styled.div`
-	display: flex;
-	align-items: center;
-	gap: 0.75rem;
-	cursor: pointer;
+export const Wrapper = styled.div`
+	display: grid;
 
-	:hover {
-		opacity: 0.5;
+	grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+	grid-auto-rows: 1fr;
+
+	gap: 1rem;
+
+	padding: 0 0 2rem;
+
+	@media (max-width: 768px) {
+		padding: 0 0 7rem;
 	}
 `;
