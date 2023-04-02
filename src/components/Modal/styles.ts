@@ -65,27 +65,50 @@ export const Info = styled.div`
 
 	h3 {
 		font-size: 1rem;
-		/* font-weight: 400; */
 		letter-spacing: 0.2rem;
-		/* text-align: center; */
 		text-transform: uppercase;
 		color: #ffffff;
-		/* margin: 1rem 0; */
 	}
 
 	.unknown {
 		color: #9e9e9e;
-		border-radius: 0.25rem;
 	}
 
 	.Dead {
 		color: #d63d2e;
-		border-radius: 0.25rem;
 	}
 
 	.Alive {
 		color: #55cc44;
-		border-radius: 0.25rem;
+	}
+
+	.teste {
+		width: 100%;
+		max-width: 75rem;
+		display: grid;
+		grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+		grid-auto-rows: 1fr;
+
+		@media (max-width: 1050px) {
+			max-width: 25rem;
+			grid-template-columns: repeat(auto-fill, minmax(90px, 1fr));
+			max-height: 15rem;
+			overflow: auto;
+		}
+
+		@media (min-width: 1051px) {
+			max-width: 50rem;
+		}
+
+		@media (min-width: 1500px) {
+			max-width: 75rem;
+		}
+	}
+
+	.character-image {
+		width: 4rem;
+		height: 4rem;
+		border-radius: 100%;
 	}
 `;
 

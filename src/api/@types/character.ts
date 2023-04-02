@@ -1,7 +1,6 @@
 export interface CharacterI {
-	name: string;
 	id: number;
-	life_span: string;
+	name: string;
 	status: string;
 	species: string;
 	type: string;

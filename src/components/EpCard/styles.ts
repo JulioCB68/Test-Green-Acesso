@@ -4,6 +4,7 @@ export const Container = styled.div`
 	width: 100%;
 	cursor: pointer;
 	margin: 1rem 0;
+	transition: all ease-in-out 300ms;
 
 	:hover {
 		transform: scale(0.95);
