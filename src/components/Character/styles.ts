@@ -56,14 +56,4 @@ export const Container = styled.div`
 			padding: 0 0.75rem;
 		}
 	}
-
-	.teste {
-		position: absolute;
-		top: 0;
-		right: 0;
-		background: #444b5c;
-		border-radius: 0.25rem;
-		opacity: 1;
-		padding: 0.5rem 1rem;
-	}
 `;

@@ -1,16 +1,14 @@
 /* eslint-disable @next/next/no-img-element */
-import React, { useState, useContext } from "react";
+import React, { useState } from "react";
 
 import { useQuery } from "react-query";
 import { getMultipleCharacters } from "api/characters";
 
 import { EpisodeI } from "api/@types/episode";
-import FavoriteContext, { Favorite } from "context/FavoriteContext";
 import { extractNumbersFromUrls } from "utils/extractNumbersFromUrls";
 
+import Favorite from "components/Favorites";
 import Modal from "components/Modal";
-
-import { AiFillStar, AiOutlineStar } from "react-icons/ai";
 
 import { Container } from "./styles";
 
@@ -21,7 +19,6 @@ interface ICardProps {
 const EpCard: React.FC<ICardProps> = ({ data }) => {
 	const [openModal, setOpenModal] = useState(false);
 	const [numbers, setNumbers] = useState<string[]>([]);
-	const { favorites, toggleFavorite } = useContext(FavoriteContext);
 
 	const { data: dataCharacters, isLoading } = useQuery(
 		["episode-characters-data", numbers],
@@ -35,15 +32,6 @@ const EpCard: React.FC<ICardProps> = ({ data }) => {
 			},
 		}
 	);
-
-	const isFav = favorites.some(
-		(favorite: Favorite) =>
-			favorite.category === "episode" && favorite.id === data?.id
-	);
-
-	const handleToggleFavorite = () => {
-		toggleFavorite(data?.id as number, "episode");
-	};
 
 	return (
 		<>
@@ -59,15 +47,7 @@ const EpCard: React.FC<ICardProps> = ({ data }) => {
 					<p>{data?.air_date}</p>
 					<p>{data?.episode}</p>
 				</div>
-				<div
-					className="favorites"
-					onClick={() => {
-						handleToggleFavorite();
-					}}
-				>
-					{isFav && <AiFillStar color="gold" />}
-					{!isFav && <AiOutlineStar color="gold" />}
-				</div>
+				<Favorite favoriteId={data?.id ?? 0} category="episode" />
 			</Container>
 			{openModal && (
 				<Modal

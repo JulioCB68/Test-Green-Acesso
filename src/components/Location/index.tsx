@@ -5,6 +5,8 @@ import routes from "config/routes";
 
 import { LocationI } from "api/@types/location";
 
+import Favorite from "components/Favorites";
+
 import { BiWorld } from "react-icons/bi";
 
 import { Container } from "./styles";
@@ -22,6 +24,7 @@ const Location: React.FC<ILocationProps> = ({ data }) => {
 				<p>{data?.type}</p>
 				<p>{data?.dimension}</p>
 			</Link>
+			<Favorite favoriteId={data?.id ?? 0} category="location" />
 		</Container>
 	);
 };
