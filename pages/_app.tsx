@@ -1,3 +1,4 @@
+import { FavoriteContextProvider } from "context/FavoriteContext";
 import type { AppProps } from "next/app";
 import { QueryClient, QueryClientProvider } from "react-query";
 
@@ -14,10 +15,12 @@ export default function App({ Component, pageProps }: AppProps) {
 	});
 	return (
 		<>
-			<GlobalStyles />
-			<QueryClientProvider client={queryClient}>
-				<Component {...pageProps} />
-			</QueryClientProvider>
+			<FavoriteContextProvider>
+				<GlobalStyles />
+				<QueryClientProvider client={queryClient}>
+					<Component {...pageProps} />
+				</QueryClientProvider>
+			</FavoriteContextProvider>
 		</>
 	);
 }

@@ -64,5 +64,6 @@ export const Container = styled.div`
 		background: #444b5c;
 		border-radius: 0.25rem;
 		opacity: 1;
+		padding: 0.5rem 1rem;
 	}
 `;

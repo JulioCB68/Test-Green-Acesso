@@ -1,11 +1,15 @@
 /* eslint-disable @next/next/no-img-element */
-import React, { useState } from "react";
-import { CharacterI } from "api/@types/character";
+import React, { useState, useContext } from "react";
 
-import { Container } from "./styles";
-import { AiFillStar, AiOutlineStar } from "react-icons/ai";
+import { CharacterI } from "api/@types/character";
+import FavoriteContext, { Favorite } from "context/FavoriteContext";
+
 import StatusIcon from "components/StatusIcon";
 import Modal from "components/Modal";
+
+import { AiFillStar, AiOutlineStar } from "react-icons/ai";
+
+import { Container } from "./styles";
 
 interface ICharacterProps {
 	data?: CharacterI;
@@ -13,6 +17,16 @@ interface ICharacterProps {
 
 const Character: React.FC<ICharacterProps> = ({ data }) => {
 	const [openModal, setOpenModal] = useState(false);
+	const { favorites, toggleFavorite } = useContext(FavoriteContext);
+
+	const isFav = favorites.some(
+		(favorite: Favorite) =>
+			favorite.category === "character" && favorite.id === data?.id
+	);
+
+	const handleToggleFavorite = () => {
+		toggleFavorite(data?.id as number, "character");
+	};
 
 	return (
 		<>
@@ -30,9 +44,15 @@ const Character: React.FC<ICharacterProps> = ({ data }) => {
 					</p>
 				</div>
 				<p>Origin: {data?.origin.name}</p>
-				<p className="teste">
-					<AiFillStar color="gold" />
-				</p>
+				<div
+					className="teste"
+					onClick={() => {
+						handleToggleFavorite();
+					}}
+				>
+					{isFav && <AiFillStar color="gold" />}
+					{!isFav && <AiOutlineStar color="gold" />}
+				</div>
 			</Container>
 			{openModal && <Modal data={data} handleModal={setOpenModal} />}
 		</>

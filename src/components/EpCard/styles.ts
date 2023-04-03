@@ -1,6 +1,7 @@
 import styled from "styled-components";
 
 export const Container = styled.div`
+	position: relative;
 	width: 100%;
 	cursor: pointer;
 	margin: 1rem 0;
@@ -11,8 +12,6 @@ export const Container = styled.div`
 	}
 
 	.background-EP {
-		/* background: linear-gradient(150deg, #516395 0%, #614385 100%); */
-		/* background: linear-gradient(150deg, #614385 0%, #516395 100%); */
 		width: 100%;
 		height: 10rem;
 		object-fit: cover;
@@ -36,5 +35,15 @@ export const Container = styled.div`
 				padding: 1rem 0 0;
 			}
 		}
+	}
+
+	.favorites {
+		position: absolute;
+		top: 0;
+		right: 0;
+		background: #444b5c;
+		border-radius: 0.25rem;
+		opacity: 0.7;
+		padding: 0.5rem 1rem;
 	}
 `;

@@ -1,14 +1,16 @@
 /* eslint-disable @next/next/no-img-element */
-import React, { useState } from "react";
-
-import { EpisodeI } from "api/@types/episode";
+import React, { useState, useContext } from "react";
 
 import { useQuery } from "react-query";
 import { getMultipleCharacters } from "api/characters";
 
+import { EpisodeI } from "api/@types/episode";
+import FavoriteContext, { Favorite } from "context/FavoriteContext";
 import { extractNumbersFromUrls } from "utils/extractNumbersFromUrls";
 
 import Modal from "components/Modal";
+
+import { AiFillStar, AiOutlineStar } from "react-icons/ai";
 
 import { Container } from "./styles";
 
@@ -18,8 +20,8 @@ interface ICardProps {
 
 const EpCard: React.FC<ICardProps> = ({ data }) => {
 	const [openModal, setOpenModal] = useState(false);
-
 	const [numbers, setNumbers] = useState<string[]>([]);
+	const { favorites, toggleFavorite } = useContext(FavoriteContext);
 
 	const { data: dataCharacters, isLoading } = useQuery(
 		["episode-characters-data", numbers],
@@ -34,18 +36,37 @@ const EpCard: React.FC<ICardProps> = ({ data }) => {
 		}
 	);
 
+	const isFav = favorites.some(
+		(favorite: Favorite) =>
+			favorite.category === "episode" && favorite.id === data?.id
+	);
+
+	const handleToggleFavorite = () => {
+		toggleFavorite(data?.id as number, "episode");
+	};
+
 	return (
 		<>
-			<Container onClick={() => setOpenModal(true)}>
+			<Container>
 				<img
 					src="https://images.unsplash.com/photo-1592564630984-7410f94db184?ixlib=rb-1.2.1&q=85&fm=jpg&crop=entropy&cs=srgb&w=4800"
 					alt="Banner"
 					className="background-EP"
+					onClick={() => setOpenModal(true)}
 				/>
-				<div className="info">
+				<div className="info" onClick={() => setOpenModal(true)}>
 					<strong>{data?.name}</strong>
 					<p>{data?.air_date}</p>
 					<p>{data?.episode}</p>
+				</div>
+				<div
+					className="favorites"
+					onClick={() => {
+						handleToggleFavorite();
+					}}
+				>
+					{isFav && <AiFillStar color="gold" />}
+					{!isFav && <AiOutlineStar color="gold" />}
 				</div>
 			</Container>
 			{openModal && (
