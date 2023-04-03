@@ -1,5 +1,3 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
-
 ## Getting Started
 
 First, run the development server:
@@ -14,25 +12,16 @@ pnpm dev
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-You can start editing the page by modifying `pages/index.tsx`. The page auto-updates as you edit the file.
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.ts`.
+About my project, for each completed step, I made corresponding commits.
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+I developed the project in Next.js with TypeScript, also using React-Query for HTTPS requests and Styled-Components for styling the entire project. I wanted to use Yup to validate inputs, but I couldn't implement it in the project's development time.
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+I decided to create a basic layout using a template, where there is a fixed (and responsive) menu and I render the pages with the content as "children". On all pages, there is a header where it's possible to paginate and search for desired characters, locations, or episodes, as well as the functionality of sorting the data being shown on the screen. I also added the option to favorite characters, locations, or episodes from all screens, and the project is fully responsive.
 
-## Learn More
+Features:
+Due to a date confusion, I couldn't implement the functionality of a favorites page where I could see all the favorited items.
 
-To learn more about Next.js, take a look at the following resources:
+I added a switch theme to toggle between the Dark and Normal themes.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+I would have liked to implement more filters on the pages, such as filtering characters by species, gender, or status, following the data flow of each of the pages.
