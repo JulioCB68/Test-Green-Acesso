@@ -7,7 +7,7 @@ import useSortableData from "hooks/useSortableData";
 import { OrdenationType } from "utils/ordenation";
 
 import Header from "components/Header";
-import Location from "components/Location";
+import Location from "components/Cards/Location";
 
 import { Container, Wrapper } from "./styles";
 

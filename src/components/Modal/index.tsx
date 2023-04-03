@@ -92,7 +92,7 @@ const Modal: React.FC<IModalProps> = ({
 										<p> {dataEp?.air_date} </p>
 									</div>
 									<h4> Characters: </h4>
-									<div className="teste">
+									<div className="characters">
 										{characters?.map((item, index) => (
 											<div key={index}>
 												<img

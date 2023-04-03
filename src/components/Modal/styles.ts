@@ -82,7 +82,7 @@ export const Info = styled.div`
 		color: #55cc44;
 	}
 
-	.teste {
+	.characters {
 		width: 100%;
 		max-width: 75rem;
 		display: grid;

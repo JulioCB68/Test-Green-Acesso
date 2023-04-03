@@ -55,7 +55,7 @@ const Location: React.FC = () => {
 						<p>{data?.dimension}</p>
 					</div>
 					<p> Residents: </p>
-					<div className="teste">
+					<div className="residents">
 						{/* Essa verificação 'Array.isArray(dataCharacters) &&'
 						garante que o método map() só será chamado se dataCharacters for um array
 						evitando o erro dataCharacters.map is not a function */}

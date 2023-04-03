@@ -21,7 +21,7 @@ export const Container = styled.div`
 		}
 	}
 
-	.teste {
+	.residents {
 		max-width: 75rem;
 		display: grid;
 		grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));

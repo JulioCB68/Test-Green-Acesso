@@ -7,7 +7,7 @@ import { getAllEpisodes } from "api/episodes";
 import { OrdenationType } from "utils/ordenation";
 
 import Header from "components/Header";
-import EpCard from "../../components/EpCard";
+import EpCard from "components/Cards/EpCard";
 
 import { Container, Wrapper, Title } from "./styles";
 
