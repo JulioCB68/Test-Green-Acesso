@@ -3,11 +3,13 @@ import React, { useState } from "react";
 import { useQuery } from "react-query";
 import { getAllLocations } from "api/locations";
 
-import { Container, Wrapper } from "./styles";
-import Header from "components/Header";
-import { OrdenationType } from "utils/ordenation";
 import useSortableData from "hooks/useSortableData";
+import { OrdenationType } from "utils/ordenation";
+
+import Header from "components/Header";
 import Location from "components/Location";
+
+import { Container, Wrapper } from "./styles";
 
 const Locations: React.FC = () => {
 	const [name, setName] = useState("");

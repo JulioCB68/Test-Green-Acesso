@@ -1,6 +1,10 @@
 /* eslint-disable @next/next/no-img-element */
 import React, { useState } from "react";
+
 import { CharacterI } from "api/@types/character";
+import { EpisodeI } from "api/@types/episode";
+
+import { FiArrowLeft } from "react-icons/fi";
 
 import {
 	Container,
@@ -11,41 +15,21 @@ import {
 	ImageContainer,
 } from "./styles";
 
-import { FiArrowLeft } from "react-icons/fi";
-import { EpisodeI } from "api/@types/episode";
-import { getMultipleCharacters } from "api/characters";
-import { useQuery } from "react-query";
-
-import { extractNumbersFromUrls } from "utils/extractNumbersFromUrls";
-
 interface IModalProps {
+	isEpisodeModal?: boolean;
 	data?: CharacterI;
 	dataEp?: EpisodeI;
+	characters?: CharacterI[];
 	handleModal: (arg: boolean) => void;
-	isEpisodeModal?: boolean;
 }
 
 const Modal: React.FC<IModalProps> = ({
+	isEpisodeModal,
 	data,
 	dataEp,
+	characters,
 	handleModal,
-	isEpisodeModal,
 }) => {
-	const [numbers, setNumbers] = useState<string[]>([]);
-
-	const { data: dataCharacters, isLoading } = useQuery(
-		["episode-characters-data", dataEp, numbers],
-		() => getMultipleCharacters(numbers),
-		{
-			onSuccess: () => {
-				if (dataEp?.characters) {
-					const extractedNumbers = extractNumbersFromUrls(dataEp.characters);
-					setNumbers(extractedNumbers);
-				}
-			},
-		}
-	);
-
 	return (
 		<>
 			<Container key={data?.id} onClick={() => handleModal(false)}>
@@ -107,21 +91,17 @@ const Modal: React.FC<IModalProps> = ({
 										<h4> Air date: </h4>
 										<p> {dataEp?.air_date} </p>
 									</div>
+									<h4> Characters: </h4>
 									<div className="teste">
-										<h4> Characters: </h4>
-										{/* Essa verificação 'Array.isArray(dataCharacters) &&'
-										 garante que o método map() só será chamado se dataCharacters for um array
-										 evitando o erro dataCharacters.map is not a function */}
-										{Array.isArray(dataCharacters) &&
-											dataCharacters.map((item, index) => (
-												<div key={index}>
-													<img
-														className={`character-image`}
-														src={item?.image}
-														alt="Character"
-													/>
-												</div>
-											))}
+										{characters?.map((item, index) => (
+											<div key={index}>
+												<img
+													className={`character-image`}
+													src={item?.image}
+													alt="Character"
+												/>
+											</div>
+										))}
 									</div>
 								</Info>
 							</SubContainer>

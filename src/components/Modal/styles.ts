@@ -88,11 +88,12 @@ export const Info = styled.div`
 		display: grid;
 		grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
 		grid-auto-rows: 1fr;
+		padding: 1rem 0;
 
 		@media (max-width: 1050px) {
 			max-width: 25rem;
 			grid-template-columns: repeat(auto-fill, minmax(90px, 1fr));
-			max-height: 15rem;
+			max-height: 25rem;
 			overflow: auto;
 		}
 

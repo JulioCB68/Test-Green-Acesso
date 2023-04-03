@@ -1,16 +1,38 @@
+/* eslint-disable @next/next/no-img-element */
 import React, { useState } from "react";
 
 import { EpisodeI } from "api/@types/episode";
 
+import { useQuery } from "react-query";
+import { getMultipleCharacters } from "api/characters";
+
+import { extractNumbersFromUrls } from "utils/extractNumbersFromUrls";
+
 import Modal from "components/Modal";
 
 import { Container } from "./styles";
+
 interface ICardProps {
 	data: EpisodeI;
 }
 
 const EpCard: React.FC<ICardProps> = ({ data }) => {
 	const [openModal, setOpenModal] = useState(false);
+
+	const [numbers, setNumbers] = useState<string[]>([]);
+
+	const { data: dataCharacters, isLoading } = useQuery(
+		["episode-characters-data", numbers],
+		() => getMultipleCharacters(numbers),
+		{
+			onSuccess: () => {
+				if (data?.characters) {
+					const extractedNumbers = extractNumbersFromUrls(data.characters);
+					setNumbers(extractedNumbers);
+				}
+			},
+		}
+	);
 
 	return (
 		<>
@@ -27,7 +49,12 @@ const EpCard: React.FC<ICardProps> = ({ data }) => {
 				</div>
 			</Container>
 			{openModal && (
-				<Modal isEpisodeModal dataEp={data} handleModal={setOpenModal} />
+				<Modal
+					isEpisodeModal
+					dataEp={data}
+					handleModal={setOpenModal}
+					characters={dataCharacters}
+				/>
 			)}
 		</>
 	);
